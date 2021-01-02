@@ -41,6 +41,10 @@ Description: <input type="text" name="text" >
 
 <h1>Todo har skapats!</h1>
 
+
+
+
+
 <ul>
 
 <form method="POST" action="todo-checked.php">
@@ -84,6 +88,7 @@ Description: <input type="text" name="text" >
 }
 
 ?>
+
 
 
     

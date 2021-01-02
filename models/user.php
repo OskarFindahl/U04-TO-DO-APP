@@ -2,7 +2,7 @@
 include(__DIR__ . '/../db.php');
 
 
-//CRUD - Create read update delete.
+
 
 function createUser($name,$password)
 {
@@ -13,11 +13,28 @@ $stmt->execute(['name'=>$name,'pass'=> $password]);
 
 
 
+}
 
 
 
 
 
+function returnTodo()
+{
+   
+
+$pdo = connectDB();
+
+$sth = $pdo->prepare("SELECT * FROM todos WHERE user_id = (SELECT id FROM users WHERE username = '{$_SESSION['username']}' LIMIT 1)");
+$sth->execute();
+
+
+$taskData = array();
+while($task = $sth->fetch(PDO::FETCH_ASSOC)){
+    $taskData[] = $task;
+};
+
+return $taskData;
 
 
 }
