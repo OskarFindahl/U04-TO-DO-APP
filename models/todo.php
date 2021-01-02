@@ -4,9 +4,11 @@ include(__DIR__ . '/../db.php');
 
 //CRUD - Create read update delete.
 session_start(); 
-function createTodo($text)
+
+function createTodo($title,$text)
 {
-  
+
+
 $pdo = connectDB();  
 
 $sth = $pdo->prepare("SELECT id FROM users WHERE username = '{$_SESSION['username']}'");
@@ -14,13 +16,14 @@ $sth->execute();
 $id = $sth->fetch(PDO::FETCH_ASSOC);
 
  
-$sql = "INSERT INTO todos (user_id,text,done) VALUES (:user_id,:text,:done)";
+$sql = "INSERT INTO todos (user_id,title,text,done) VALUES (:user_id,:title,:text,:done)";
 $stmt = $pdo -> prepare($sql);
-$stmt->execute(['user_id' => $id['id'], 'text'=>$text, 'done' => 0]);
-
-
+$stmt->execute(['user_id' => $id['id'], 'title' => $title, 'text'=>$text, 'done' => 0]);
 
 }
+
+
+
 
 function returnTodo()
 {
@@ -45,13 +48,17 @@ return $taskData;
 
 
 
-function updateTodoStatus($task_id)
+function updateTodoStatus($task_id = "empty")
 {
 $pdo = connectDB();   
 
 $sql = "UPDATE todos SET done = '0' WHERE user_id = (SELECT id FROM users WHERE username = '{$_SESSION['username']}' LIMIT 1)";
 $stmt = $pdo -> prepare($sql);
 $stmt->execute();
+
+
+if($task_id !== "empty")
+{
 
 
     foreach($task_id as $id)
@@ -61,6 +68,25 @@ $stmt->execute();
       $stmt->execute();
 
     }
+
+}
+
+}
+
+
+function deleteTodo($delete_id)
+{
+
+    $pdo = connectDB();   
+
+    foreach($delete_id as $id)
+    {
+      $sql = "DELETE FROM todos WHERE task_id = '$id'";
+      $stmt = $pdo -> prepare($sql);
+      $stmt->execute();
+
+    }
+
 
 
 
