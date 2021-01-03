@@ -47,7 +47,7 @@ Description: <input type="text" name="text" >
 
 <ul>
 
-<form method="POST" action="todo-checked.php">
+<form name="myform" method="POST" action="todo-checked.php">
 
   <?php
   foreach($taskData as $data){
@@ -57,8 +57,8 @@ Description: <input type="text" name="text" >
      echo "<li>" . 
      $data['title'] . ": " . 
      $data['text'] . 
-    "<input type=\"checkbox\" name = \"status[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>" . 
-    "<input type=\"checkbox\" name = \"remove[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>"; 
+    "<input class=\"status\" type=\"checkbox\" name = \"status[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>" . 
+    "<input class=\"delete\"  type=\"checkbox\" name = \"remove[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>"; 
 
   }
 
@@ -67,27 +67,57 @@ Description: <input type="text" name="text" >
     echo "<li>" . 
     $data['title'] . ": " . 
     $data['text'] . 
-   "<input type=\"checkbox\" name = \"status[]\" value= " . "\"" . $data['task_id'] . "\"" . "checked> </li>" .
-   "<input type=\"checkbox\" name = \"remove[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>";  
-    }
+   "<input class=\"status\" type=\"checkbox\" name = \"status[]\" value= " . "\"" . $data['task_id'] . "\"" . "checked> </li>" .
+   "<input class=\"delete\" type=\"checkbox\" name = \"remove[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>";  
+    };
 
     
   };
 
-   ?> 
+   ?>
 
-<button type="submit">Done</button>
 
-</form>
+<script type="text/javascript"> 
+var statusBtns = document.querySelectorAll('.status');
+var deleteBtns = document.querySelectorAll('.delete');
 
-</ul>
+
+
+  statusBtns.forEach(item => {
+    item.addEventListener('click',event => {
+    document.myform.submit();
+    })
+  })
+
+  deleteBtns.forEach(item => {
+    item.addEventListener('click',event => {
+    document.myform.submit();
+    })
+  })
+
+
+
+
+</script> 
+
 
 
 <?php
 
 }
-
 ?>
+
+
+
+
+
+
+
+</form>
+</ul>
+
+
+
 
 
 
