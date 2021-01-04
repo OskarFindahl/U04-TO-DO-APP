@@ -92,3 +92,19 @@ function deleteTodo($delete_id)
 
 }
 
+
+
+function editTodo($id,$title)
+{
+
+  $pdo = connectDB();   
+
+  
+    $sql = "UPDATE todos SET title = '$title' WHERE task_id = '$id'";
+    $stmt = $pdo -> prepare($sql);
+    $stmt->execute();
+
+echo('hej');
+
+}
+

@@ -45,9 +45,9 @@ Description: <input type="text" name="text" >
 
 
 
-<ul>
+<ul class="list">
 
-<form name="myform" method="POST" action="todo-checked.php">
+<form  name="myform" class="myform" method="POST" action="todo-checked.php">
 
   <?php
   foreach($taskData as $data){
@@ -58,7 +58,9 @@ Description: <input type="text" name="text" >
      $data['title'] . ": " . 
      $data['text'] . 
     "<input class=\"status\" type=\"checkbox\" name = \"status[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>" . 
-    "<input class=\"delete\"  type=\"checkbox\" name = \"remove[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>"; 
+    "<input class=\"delete\"  type=\"checkbox\" name = \"remove[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>" . 
+    "<input class=\"update\"  type=\"checkbox\" name = \"update[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>"; 
+    
 
   }
 
@@ -68,7 +70,9 @@ Description: <input type="text" name="text" >
     $data['title'] . ": " . 
     $data['text'] . 
    "<input class=\"status\" type=\"checkbox\" name = \"status[]\" value= " . "\"" . $data['task_id'] . "\"" . "checked> </li>" .
-   "<input class=\"delete\" type=\"checkbox\" name = \"remove[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>";  
+   "<input class=\"delete\" type=\"checkbox\" name = \"remove[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>" . 
+    "<input class=\"update\"  type=\"checkbox\" name = \"update[]\" value= " . "\"" . $data['task_id'] . "\"" . "> </li>"; 
+   
     };
 
     
@@ -77,10 +81,13 @@ Description: <input type="text" name="text" >
    ?>
 
 
+
+<!--Javascript -->
 <script type="text/javascript"> 
+
 var statusBtns = document.querySelectorAll('.status');
 var deleteBtns = document.querySelectorAll('.delete');
-
+var updateBtns = document.querySelectorAll('.update');
 
 
   statusBtns.forEach(item => {
@@ -96,6 +103,38 @@ var deleteBtns = document.querySelectorAll('.delete');
   })
 
 
+
+
+//Form edit
+  updateBtns.forEach(item => {
+    item.addEventListener('click',event => {
+        let titleEdit = document.createElement('input');
+        titleEdit.setAttribute('type','text');
+        titleEdit.setAttribute('name',item.value);
+        titleEdit.setAttribute('class','titleEdit');
+
+      let newForm = document.createElement('form');
+      newForm.setAttribute('name','editForm');
+      newForm.setAttribute('class','editForm');
+      newForm.setAttribute('method','POST');
+      newForm.setAttribute('action','todo-edit.php');
+
+
+        var form = item.parentNode; 
+
+        form.insertBefore(newForm, item);
+        newForm.appendChild(titleEdit);
+
+        let submitButton = document.createElement('button');
+        submitButton.setAttribute('class','submitButton');
+        
+        newForm.appendChild(submitButton);
+        submitButton.addEventListener('click', event => {
+        document.myform.submit();
+        })
+        
+    })
+  })
 
 
 </script> 
