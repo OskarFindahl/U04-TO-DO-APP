@@ -26,9 +26,13 @@ function showUserTodoView($taskData){
 
 
 <div class="BtnTitles">
+
+
 <h2 class="BtnTitleEdit">Edit</h2>
 <h2 class="BtnTitleDelete">Delete</h2>
 <h2 class="BtnTitleDone">Done</h2>
+<button class="selectAll" >All done!</button>
+
 </div>
 
 
@@ -71,8 +75,13 @@ function showUserTodoView($taskData){
 
 
 <!--Javascript -->
+
+
+
+
 <script type="text/javascript"> 
 
+//check if status or delete buttons are pressed
 var statusBtns = document.querySelectorAll('.status');
 var deleteBtns = document.querySelectorAll('.delete');
 var updateBtns = document.querySelectorAll('.update');
@@ -93,12 +102,10 @@ var updateBtns = document.querySelectorAll('.update');
 
 
 
-//Form edit
+//Editing list items 
   updateBtns.forEach(item => {
     item.addEventListener('click',event => {
       
-
-//Create new node Elements for edit
       let newForm = document.createElement('form');
       newForm.setAttribute('name','editForm');
       newForm.setAttribute('class','editForm');
@@ -129,15 +136,8 @@ var updateBtns = document.querySelectorAll('.update');
         
 
         form.insertBefore(newForm, item);
-
   
-
         form.appendChild(titleEdit);
-
-
-        // form.insertBefore(titleEdit, form.children[0]);
-        // form.insertBefore(descriptionEdit, form.children[1]);
-        // form.insertBefore(submitButton, form.children[2]);
 
         newForm.appendChild(titleEdit);
         newForm.appendChild(descriptionEdit);
@@ -151,6 +151,23 @@ var updateBtns = document.querySelectorAll('.update');
         
     })
   })
+
+
+
+//Check press of "all done" button to change all task status 
+let selectAllBtn = document.querySelector('.selectAll');
+selectAllBtn.addEventListener('click', event => {
+        let statusBtns = document.querySelectorAll('.status');
+        statusBtns.forEach(item => {
+          
+          item.checked = true;
+          document.myform.submit();
+
+        });
+      });
+
+
+
 
 
 </script> 
