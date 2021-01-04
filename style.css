@@ -33,6 +33,17 @@
   top: 58px;
 }
 
+.editForm {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  width: 1400px;
+  height: auto;
+  left: 17px;
+  top: 58px;
+}
 .inputTitle {
   width: 279px;
   height: 50px;
@@ -87,10 +98,8 @@
 
 .title {
   width: 279px;
-
   background: #c4c4c4;
   border-radius: 5px;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -162,9 +171,7 @@
 .BtnTitleEdit {
   width: 120px;
   height: 50px;
-
   display: flex;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -173,8 +180,24 @@
   margin-top: 4%;
   margin-right: -5px;
   text-align: center;
-
   color: #000000;
-
   transform: rotate(-90deg);
+}
+
+.submitButton {
+  width: 280px;
+  height: 60px;
+  border-radius: 5px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: #c4c4c4;
+  justify-content: center;
+  color: white;
 }

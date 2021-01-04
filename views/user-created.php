@@ -96,29 +96,57 @@ var updateBtns = document.querySelectorAll('.update');
 //Form edit
   updateBtns.forEach(item => {
     item.addEventListener('click',event => {
-        let titleEdit = document.createElement('input');
-        titleEdit.setAttribute('type','text');
-        titleEdit.setAttribute('name',item.value);
-        titleEdit.setAttribute('class','titleEdit');
+      
 
+//Create new node Elements for edit
       let newForm = document.createElement('form');
       newForm.setAttribute('name','editForm');
       newForm.setAttribute('class','editForm');
       newForm.setAttribute('method','POST');
       newForm.setAttribute('action','todo-edit.php');
 
+      let titleEdit = document.createElement('input');
+        titleEdit.setAttribute('type','text');
+        titleEdit.setAttribute('name',item.value);
+        titleEdit.setAttribute('class','title');
+
+     let descriptionEdit = document.createElement('input');
+        descriptionEdit.setAttribute('type','text');
+        descriptionEdit.setAttribute('name','description');
+        descriptionEdit.setAttribute('class','description');
+
+    let submitButton = document.createElement('button');
+        submitButton.setAttribute('class','submitButton');
+        submitButton.innerHTML = "Submit";
 
         var form = item.parentNode; 
+        form.children[0].style.display = "none";
+        form.children[1].style.display = "none";
+        form.children[2].style.display = "none";
+        form.children[3].style.display = "none";
+        form.children[4].style.display = "none";
+
+        
 
         form.insertBefore(newForm, item);
-        newForm.appendChild(titleEdit);
 
-        let submitButton = document.createElement('button');
-        submitButton.setAttribute('class','submitButton');
-        
+  
+
+        form.appendChild(titleEdit);
+
+
+        // form.insertBefore(titleEdit, form.children[0]);
+        // form.insertBefore(descriptionEdit, form.children[1]);
+        // form.insertBefore(submitButton, form.children[2]);
+
+        newForm.appendChild(titleEdit);
+        newForm.appendChild(descriptionEdit);
         newForm.appendChild(submitButton);
+
+       
         submitButton.addEventListener('click', event => {
         document.myform.submit();
+        document.querySelector('.editForm');
         })
         
     })

@@ -94,17 +94,17 @@ function deleteTodo($delete_id)
 
 
 
-function editTodo($id,$title)
+function editTodo($id,$title,$description)
 {
 
   $pdo = connectDB();   
 
   
-    $sql = "UPDATE todos SET title = '$title' WHERE task_id = '$id'";
+    $sql = "UPDATE todos SET title = '$title', text = '$description' WHERE task_id = '$id'";
     $stmt = $pdo -> prepare($sql);
     $stmt->execute();
 
-echo('hej');
+
 
 }
 

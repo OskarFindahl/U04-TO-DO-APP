@@ -9,10 +9,11 @@ function handleTodoEdit()
 
 $id = (key($_POST));
 $title= $_POST[key($_POST)];
+$description = $_POST['description'];
 
 
-echo($id);
-editTodo($id,$title);
+
+editTodo($id,$title,$description);
 
 
 $taskData = returnTodo();
