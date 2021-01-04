@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.AddTaskForm {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 1400px;
+  height: 119px;
+  left: 17px;
+  top: 58px;
+
+  border: 1px solid #010101;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.myform {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  width: 1400px;
+  height: auto;
+  left: 17px;
+  top: 58px;
+}
+
+.inputTitle {
+  width: 279px;
+  height: 50px;
+  background: #c4c4c4;
+  border-radius: 5px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.inputDescription {
+  width: 652px;
+  height: 50px;
+  background: #c4c4c4;
+  border-radius: 5px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.AddTaskButton {
+  width: 250px;
+  height: 50px;
+  background: #c4c4c4;
+  border-radius: 5px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  justify-content: center;
+}
+
+.title {
+  width: 279px;
+
+  background: #c4c4c4;
+  border-radius: 5px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  justify-content: center;
+}
+
+.description {
+  overflow-wrap: anywhere;
+
+  width: 652px;
+
+  background: #c4c4c4;
+  border-radius: 5px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  justify-content: center;
+}
+
+.status,
+.delete,
+.update {
+  width: 50px;
+  height: 50px;
+
+  background: #c4c4c4;
+  border-radius: 5px;
+}
+
+.listItem {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 1400px;
+  left: 17px;
+  top: 58px;
+  padding-bottom: 10px;
+}
+
+.BtnTitles {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 150px;
+
+  width: 1400px;
+
+  left: 17px;
+  top: 58px;
+  margin: auto;
+}
+
+.BtnTitleDone,
+.BtnTitleDelete,
+.BtnTitleEdit {
+  width: 120px;
+  height: 50px;
+
+  display: flex;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  margin-top: 4%;
+  margin-right: -5px;
+  text-align: center;
+
+  color: #000000;
+
+  transform: rotate(-90deg);
+}
