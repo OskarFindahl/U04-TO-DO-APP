@@ -32,6 +32,7 @@ function showUserTodoView($taskData){
 <h2 class="BtnTitleDelete">Delete</h2>
 <h2 class="BtnTitleDone">Done</h2>
 <button class="selectAll" >All done!</button>
+<button class="deleteAllDone">Delete all done</button> 
 
 </div>
 
@@ -166,6 +167,21 @@ selectAllBtn.addEventListener('click', event => {
         });
       });
 
+
+//Check press of "delete done tasks" and delete them
+let deleteAllDoneBtn = document.querySelector('.deleteAllDone');
+deleteAllDoneBtn.addEventListener('click', event => {
+        let deleteBtns = document.querySelectorAll('.delete');
+        deleteBtns.forEach(item => {
+          
+          if(item.previousSibling.checked === true){
+          item.checked = true;
+          
+          }
+         document.myform.submit();
+
+        });
+      });
 
 
 
