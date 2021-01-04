@@ -31,9 +31,10 @@ function showUserTodoView($taskData){
 <h2 class="BtnTitleEdit">Edit</h2>
 <h2 class="BtnTitleDelete">Delete</h2>
 <h2 class="BtnTitleDone">Done</h2>
-<button class="selectAll" >All done!</button>
-<button class="deleteAllDone">Delete all done</button> 
 
+
+<button class="deleteAllDone">Delete all done</button> 
+<button class="selectAll" >All done!</button>
 </div>
 
 
