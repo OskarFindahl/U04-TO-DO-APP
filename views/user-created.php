@@ -19,8 +19,8 @@ function showUserTodoView($taskData){
 
 
 <form class="AddTaskForm" method="POST" action="create-todo.php">
-<input class="inputTitle" type="text" name="title" value="Title" >
-<input class="inputDescription" type="text" name="text" value="Description">
+<input class="inputTitle" type="text" name="title"  placeholder="Title" required >
+<input class="inputDescription" type="text" name="text" placeholder="Description" required>
 <button class="AddTaskButton" type="submit" >Add</button>
 </form>
 
@@ -118,11 +118,15 @@ var updateBtns = document.querySelectorAll('.update');
         titleEdit.setAttribute('type','text');
         titleEdit.setAttribute('name',item.value);
         titleEdit.setAttribute('class','title');
+        titleEdit.setAttribute('placeholder','Title input');
+        titleEdit.required=true;
 
      let descriptionEdit = document.createElement('input');
         descriptionEdit.setAttribute('type','text');
         descriptionEdit.setAttribute('name','description');
         descriptionEdit.setAttribute('class','description');
+        descriptionEdit.setAttribute('placeholder','description input');
+        descriptionEdit.required=true;
 
     let submitButton = document.createElement('button');
         submitButton.setAttribute('class','submitButton');
@@ -147,8 +151,12 @@ var updateBtns = document.querySelectorAll('.update');
 
        
         submitButton.addEventListener('click', event => {
-        document.myform.submit();
-        document.querySelector('.editForm');
+          setTimeout(function() {
+          document.myform.submit();
+          document.querySelector('.editForm');
+        }, 1500);
+        
+        
         })
         
     })

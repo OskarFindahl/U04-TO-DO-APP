@@ -94,6 +94,7 @@
   text-align: center;
   color: #ffffff;
   justify-content: center;
+  cursor: pointer;
 }
 
 .title {
@@ -140,6 +141,7 @@
 
   background: #c4c4c4;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .listItem {
@@ -200,6 +202,7 @@
   background-color: #c4c4c4;
   justify-content: center;
   color: white;
+  cursor: pointer;
 }
 
 .selectAll,
@@ -221,4 +224,46 @@
   background-color: #c4c4c4;
   justify-content: center;
   color: white;
+  cursor: pointer;
+}
+
+.registerForm {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 1400px;
+  height: 119px;
+  left: 17px;
+  top: 58px;
+
+  border: 1px solid #010101;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.username,
+.password,
+.registerSubmitBtn {
+  width: 279px;
+  height: 50px;
+  background: #c4c4c4;
+  border-radius: 5px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.registerSubmitBtn {
+  cursor: pointer;
+  justify-content: center;
 }
