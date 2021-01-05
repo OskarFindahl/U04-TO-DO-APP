@@ -16,6 +16,6 @@ function handleCreateTodo()
 
     createTodo($title,$text);
     $taskData = returnTodo();
-    print_r($taskData[0]['listCategory']);
+    
     showUserTodoView($taskData);
 }
