@@ -9,6 +9,7 @@ function handleCreateUser()
 {
     session_start();
     $_SESSION['username'] = $_POST['username'];
+    $_SESSION['listCategory'] = 0;
     $password = $_POST['password'];
     createUser($_SESSION['username'],$password);
 

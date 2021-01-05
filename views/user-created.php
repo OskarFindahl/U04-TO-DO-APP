@@ -22,6 +22,12 @@ function showUserTodoView($taskData){
         <input class="inputTitle" type="text" name="title"  placeholder="Title" required >
         <input class="inputDescription" type="text" name="text" placeholder="Description" required>
         <button class="AddTaskButton" type="submit" >Add</button>
+        <input type="radio" id="ASAP" class="listCategory" name="listCategory" value="0" <?php if($_SESSION['listCategory']== 0){echo "checked";}; ?>>      
+        <label class="listCategorye" for="ASAP">ASAP</label><br>
+        <input type="radio" id="doInTime" class="listCategory" name="listCategory" value="1" <?PHP if( $_SESSION['listCategory'] == 1){echo "checked";}; ?>>
+        <label class="listCategory" for="doInTime">Do In Time</label><br>
+        <input class="listCategory" type="radio" id="Manjana" class="listCategory" name="listCategory" value="2" <?PHP if( $_SESSION['listCategory'] == 2){echo "checked";}; ?>>
+        <label for="other">Manjana</label>
     </form>
 
 

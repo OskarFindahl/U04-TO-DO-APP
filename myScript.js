@@ -112,5 +112,35 @@ deleteAllDoneBtn.addEventListener('click', event => {
       });
 
 
+    
 
+
+//To change List Category 
+let listCategoryBtns = document.querySelectorAll('.listCategory')
+
+listCategoryBtns.forEach(item => {
+    item.addEventListener('click',event => {
+    
+        
+        let listCategoryForm = document.createElement('form');
+        listCategoryForm.setAttribute('name','listCategoryForm');
+        listCategoryForm.setAttribute('class','listCategoryForm');
+        listCategoryForm.setAttribute('method','POST');
+        listCategoryForm.setAttribute('action','listCategory.php');
+
+        let listCategorySubmitButton = document.createElement('input');
+        listCategorySubmitButton.setAttribute('name', 'listCategory');
+        listCategorySubmitButton.setAttribute('value', item.value);
+        listCategorySubmitButton.style.visibility = "hidden";
+
+        
+        
+        document.querySelector('.list').appendChild(listCategoryForm);
+        listCategoryForm.appendChild(listCategorySubmitButton);
+
+        document.listCategoryForm.submit();
+
+
+    })
+  })
 

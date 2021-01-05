@@ -12,10 +12,12 @@ function createTodo($title,$text)
     $sth->execute();
     $id = $sth->fetch(PDO::FETCH_ASSOC);
 
-    $sql = "INSERT INTO todos (user_id,title,text,done) VALUES (:user_id,:title,:text,:done)";
+    $sql = "INSERT INTO todos (user_id,listCategory,title,text,done) VALUES (:user_id,:listCategory,:title,:text,:done)";
     $stmt = $pdo -> prepare($sql);
-    $stmt->execute(['user_id' => $id['id'], 'title' => $title, 'text'=>$text, 'done' => 0]);
+    $stmt->execute(['user_id' => $id['id'],'listCategory' => $_SESSION['listCategory'], 'title' => $title, 'text'=>$text, 'done' => 0]);
 }
+
+
 
 
 
@@ -23,7 +25,7 @@ function createTodo($title,$text)
 function returnTodo()
 {  
     $pdo = connectDB();
-    $sth = $pdo->prepare("SELECT * FROM todos WHERE user_id = (SELECT id FROM users WHERE username = '{$_SESSION['username']}' LIMIT 1)");
+    $sth = $pdo->prepare("SELECT * FROM todos WHERE user_id = (SELECT id FROM users WHERE username = '{$_SESSION['username']}' LIMIT 1) AND listCategory = {$_SESSION['listCategory']}");
     $sth->execute();
 
     $taskData = array();
@@ -34,6 +36,9 @@ function returnTodo()
 
     return $taskData;
 }
+
+
+
 
 
 
